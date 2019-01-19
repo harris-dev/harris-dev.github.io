@@ -1,12 +1,96 @@
 <!DOCTYPE html>
 <html>
-  
-<header>
-  <h2>Test Page</h2>
+
+<title>harris-dev</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+	html {
+		font-family: "Segoe UI";
+	}
+	body {
+		padding-top: 100px;
+	}
+	.nav-up {
+		top: -200px; 
+		display: none;
+	}
+	.nav-submenu{
+		width: 100%;
+	}
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+	// only really care for ES15
+
+	// hiding navigation bar
+	class NavigationHider{
+		constructor(delta, targetClass){
+			this.delta = delta;
+			this.classTag = targetClass;
+			this.visible=true;
+			this.lastPosition = 1;
+		}
+		CheckNavigationState(e){
+
+			var st = $(window).scrollTop();
+
+			//check if the scroll is 5 less than previous window state (user is scrolling up)
+			//or if the scope is within the header area
+			this.visible = (st<=navHeight-this.delta&&st<200)
+
+			// calls the correct method to hide/show the nagivation
+			this.visible?this.Show():this.Hide();
+			
+			// sets the last position
+			this.lastPosition = st;
+
+		}
+		Hide(){
+			$(this.classTag).addClass("nav-up")
+		}
+		Show(){
+
+			$(this.classTag).addClass("w3-animate-top").removeClass("nav-up")
+		}
+	}
+
+	let navHeight = 63;
+	var navManager = new NavigationHider(60,".nav-submenu");
+
+	// adds the event handler
+	//$(window).scroll((e)=>navManager.CheckNavigationState(e));
+	setInterval(()=>navManager.CheckNavigationState(""),150);
+
+	
+</script>
+
+<header class="w3-top">
+
+	<div class="w3-container w3-blue-grey" style="height: auto; text-align:middle;">
+		<h2 class="w3-opacity">harris-dev</h2>
+	</div>
+
+	<div class="w3-container nav-submenu w3-light-gray">
+		<a href="#" class="w3-button">About</a>
+		<a href="#" class="w3-button">Projects</a>
+		<a href="#" class="w3-button">Interests (2019)</a>
+	</div>
+
 </header>
 
-<body>
+<body  w3-light-grey>
+	<!--Some Slideshow Magic Here-->
+	<div class="w3-container w3-fill" style="height:1000px">
 
+	</div>
 </body>
+
+<footer class="w3-container w3-blue-grey">
+	<div class="w3-left">
+		<p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+	</div>
+</footer>
 
 </html>
