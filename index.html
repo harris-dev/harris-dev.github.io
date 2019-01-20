@@ -6,7 +6,6 @@
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript">
-	// only really care for ES15
 
 	// hiding navigation bar
 	class NavigationHider{
@@ -50,6 +49,8 @@
 </script>	
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
 	html {
 		font-family: "Segoe UI";
@@ -69,17 +70,25 @@
 		border-radius: 5px;
 		opacity: 1;
   		transition: 0.3s;
+		font-weight: bold;
 	}
 	.pipeline{
 		padding-left: 10px;
 		padding-right: 10px;
-		/*padding-top:20px;
-		padding-bottom: 20px;*/
 	}
 	.section-header{
 		padding-left: 20px;
 		font-size: 30px;
 		color: darkgrey;
+	}
+	.main{
+		display: inline;
+	}
+	.side{
+		display: inline;
+		height: 100%; 
+		width: 25%;
+
 	}
 </style>
 
@@ -90,72 +99,71 @@
 		<h2 class="w3-opacity">.harris-dev</h2>
 	</div>
 
-	<div class="w3-container nav-submenu w3-light-gray w3-round-small">
+	<div class="w3-container nav-submenu w3-gray w3-round-small">
 		<a href="#" class="w3-button">About</a>
 		<a href="#projects" class="w3-button">Projects</a>
-		<a href="#" class="w3-button">Interests (2019)</a>
+		<a href="#interests" class="w3-button">Interests (2019)</a>
 	</div>
 
 </header>
 
-<body  w3-light-grey>
-	
+<body class="w3-light-grey">	
 
-	<div class="w3-container" style="height:100px;">
+	<div class="main">
 
-		<p class="section-header" id="highlights"><u>Highlights</u></p>
+		<div class="w3-container pipeline">
 
-	</div>
+			<p class="section-header" id="highlights"><u>Highlights</u></p>
 
-	<div class="w3-container pipeline">
+			<p class="section-header" id="projects"><u>Projects</u></p>
 
-		<p class="section-header" id="projects"><u>Projects</u></p>
-
-		<table class="w3-table-all w3-hoverable">
-			<thead>
+			<table class="w3-table-all w3-hoverable" style="overflow-x:auto;">
+				<thead>
+					<tr class="w3-blue-grey">
+						<th>ID</th>
+						<th>Project Name</th>
+						<th>Description</th>
+						<th style="width:500px">Link (If Available)</th>
+					</tr>
+				</thead>
+				
 				<tr>
-					<th>ID</th>
-					<th>Project Name</th>
-					<th>Description</th>
-					<th style="width:500px">Link (If Available)</th>
+					<td>001</td>
+					<td>EPROM Programmer</td>
+					<td>An arduino based EPROM programmer</td>
+					<td>In Dev</td>
 				</tr>
-			</thead>
-			
-			<tr>
-				<td>001</td>
-				<td>EPROM Programmer</td>
-				<td>An arduino based EPROM programmer</td>
-				<td>In Dev</td>
-			</tr>
-			<tr>
-				<td>002</td>
-				<td>Mileage Calculator</td>
-				<td>A quick Python app to help the missus calculate the mileage returns</td>
-				<td>In Dev</td>
-			</tr>
-			<tr>
-				<td>003</td>
-				<td>A home storage controller.</td>
-				<td>A home storage controller, syncronising the media content between local servers. Primarily in ASP.NET Core</td>
-				<td>In Dev</td>
-			</tr>
-			<tr>
-				<td>004</td>
-				<td>Personal Web Page</td>
-				<td>Eventually rebuilding this page into a ASP.NET Core page to advertise services and portfolio.</td>
-				<td>In Dev</td>
-			</tr>
+				<tr>
+					<td>002</td>
+					<td>Mileage Calculator</td>
+					<td>A quick Python app to help the missus calculate the mileage returns</td>
+					<td>In Dev</td>
+				</tr>
+				<tr>
+					<td>003</td>
+					<td>A home storage controller.</td>
+					<td>A home storage controller, syncronising the media content between local servers. Primarily in ASP.NET Core</td>
+					<td>In Dev</td>
+				</tr>
+				<tr>
+					<td>004</td>
+					<td>Personal Web Page</td>
+					<td>Eventually rebuilding this page into a ASP.NET Core page to advertise services and portfolio.</td>
+					<td>In Dev</td>
+				</tr>
 
-		</table>
+			</table>
 
+			<p class="section-header" id="interests"><u>Interests (2019 Agenda)</u></p>
+
+		</div>
+
+		<div class="w3-container w3-right">
+
+		</div>
+	
 	</div>
 
-	<div class="w3-container">
-		<p class="section-header" id="projects"><u>Interests (2019 Agenda)</u></p>
-
-	</div>
-	
-	
 </body>
 
 <footer class="w3-container w3-blue-grey">
