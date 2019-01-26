@@ -1,174 +1,182 @@
 <!DOCTYPE html>
 <html>
-
-<title>harris-dev</title>
+<title>.harrisDev</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script type="text/javascript">
-
-	// hiding navigation bar
-	class NavigationHider{
-		constructor(delta, targetClass){
-			this.delta = delta;
-			this.classTag = targetClass;
-			this.visible=true;
-			this.lastPosition = 1;
-		}
-		CheckNavigationState(e){
-
-			var st = $(window).scrollTop();
-
-			//check if the scroll is 5 less than previous window state (user is scrolling up)
-			//or if the scope is within the header area
-			this.visible = ((st<=navHeight-this.delta&&st<200)||st<this.lastPosition);
-
-			// calls the correct method to hide/show the nagivation
-			this.visible?this.Show():this.Hide();
-			
-			// sets the last position
-			this.lastPosition = st;
-
-		}
-		Hide(){
-			$(this.classTag).addClass("nav-up")
-		}
-		Show(){
-
-			$(this.classTag).addClass("w3-animate-top").removeClass("nav-up")
-		}
-	}
-
-	let navHeight = 63;
-	var navManager = new NavigationHider(60,".nav-submenu");
-
-	// adds the event handler
-	$(window).scroll((e)=>navManager.CheckNavigationState(e));
-	//setInterval(()=>navManager.CheckNavigationState(""),150);
-
-</script>	
-
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <style>
-	html {
-		font-family: "Segoe UI";
-	}
-	body {
-		padding-top: 120px;
-	}
-	.nav-up {
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Segoe UI"}
+    .main{
+        margin-right: 300px;
+    }
+    .nav-up {
 		top: -200px; 
 		display: none;
 		transition: 2ms;
 	}
-	.nav-submenu{
-		width: 100%;
-	}
-	.nav-submenu a{
-		border-radius: 5px;
-		opacity: 1;
-  		transition: 0.3s;
-		font-weight: bold;
-	}
-	.pipeline{
-		padding-left: 10px;
-		padding-right: 10px;
-	}
-	.section-header{
-		padding-left: 20px;
-		font-size: 30px;
-		color: darkgrey;
-	}
-	.main{
-		display: inline;
-	}
-	.side{
-		display: inline;
-		height: 100%; 
-		width: 25%;
-
+    body {
+		padding-top: 0px;
 	}
 </style>
+<script>
+// Script to open and close sidebar that I borrowed from w3
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+    
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
 
+// hiding .harrisdev header
+class NavigationHider{
+    constructor(delta, targetClass){
+        this.delta = delta;
+        this.classTag = targetClass;
+        this.visible=true;
+        this.lastPosition = 1;
+    }
+    CheckNavigationState(e){
 
-<header class="w3-top">
+        var st = $(window).scrollTop();
 
-	<div class="w3-container w3-blue-grey" style="display: fixed; height: auto; text-align:middle;">
-		<h2 class="w3-opacity">.harris-dev</h2>
-	</div>
+        //check if the scroll is 5 less than previous window state (user is scrolling up)
+        //or if the scope is within the header area
+        this.visible = ((st<=navHeight-this.delta&&st<200)||st<this.lastPosition);
 
-	<div class="w3-container nav-submenu w3-gray w3-round-small">
-		<a href="#" class="w3-button">About</a>
-		<a href="#projects" class="w3-button">Projects</a>
-		<a href="#interests" class="w3-button">Interests (2019)</a>
-	</div>
+        // calls the correct method to hide/show the nagivation
+        this.visible?this.Show():this.Hide();
+        
+        // sets the last position
+        this.lastPosition = st;
 
-</header>
+    }
+    Hide(){
+        $(this.classTag).addClass("nav-up")
+    }
+    Show(){
 
-<body class="w3-light-grey">	
+        $(this.classTag).addClass("w3-animate-top").removeClass("nav-up")
+    }
+}
 
-	<div class="main">
+let navHeight = 63;
+var navManager = new NavigationHider(60,".header-hide");
 
-		<div class="w3-container pipeline">
+// adds the event handler
+//$(window).scroll((e)=>navManager.CheckNavigationState(e));
+//setInterval(()=>navManager.CheckNavigationState(""),150);
+</script>
 
-			<p class="section-header" id="highlights"><u>Highlights</u></p>
+<body class="w3-light-grey w3-content" style="max-width:1600px">
 
-			<p class="section-header" id="projects"><u>Projects</u></p>
+    <!-- Sidebar/menu -->
+    <nav class="w3-sidebar w3-collapse w3-white w3-animate-right" style="z-index:3;width:300px;right:0;" id="mySidebar"><br>
+    <div class="w3-container">
+        <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
+        <i class="fa fa-remove"></i>
+        </a>
+    </div>
+    <div class="w3-bar-block">
+        <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fas fa-code w3-margin-right"></i>About</a> 
+        <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fas fa-pen"></i>Projects</a> 
+        <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fas fa-glasses w3-margin-right"></i>Interests</a>
+    </div>
+    <div class="w3-panel w3-large">
+        <i class="fab fa-linkedin w3-hover-opacity"></i>
+        <i class="fab fa-github w3-hover-opacity"></i>
+    </div>
+    </nav>
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
-			<table class="w3-table-all w3-hoverable" style="overflow-x:auto;">
-				<thead>
-					<tr class="w3-blue-grey">
-						<th>ID</th>
-						<th>Project Name</th>
-						<th>Description</th>
-						<th style="width:500px">Link (If Available)</th>
-					</tr>
-				</thead>
-				
-				<tr>
-					<td>001</td>
-					<td>EPROM Programmer</td>
-					<td>An arduino based EPROM programmer</td>
-					<td>In Dev</td>
-				</tr>
-				<tr>
-					<td>002</td>
-					<td>Mileage Calculator</td>
-					<td>A quick Python app to help the missus calculate the mileage returns</td>
-					<td>In Dev</td>
-				</tr>
-				<tr>
-					<td>003</td>
-					<td>A home storage controller.</td>
-					<td>A home storage controller, syncronising the media content between local servers. Primarily in ASP.NET Core</td>
-					<td>In Dev</td>
-				</tr>
-				<tr>
-					<td>004</td>
-					<td>Personal Web Page</td>
-					<td>Eventually rebuilding this page into a ASP.NET Core page to advertise services and portfolio.</td>
-					<td>In Dev</td>
-				</tr>
+      <!-- Header -->
+    <header class="w3-container w3-blue-grey header-hide" style="display: fixed; text-align:middle; height: 60px; top:0px">
+        <span><span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+        <a class="w3-opacity" style="font-size: 25px;">.harrisDev</a></span>
+    </header>
 
-			</table>
+    <div class="w3-main main">
 
-			<p class="section-header" id="interests"><u>Interests (2019 Agenda)</u></p>
+        <div class="w3-container" >
+            <p class="section-header" id="highlights"><u>Highlights</u></p>
+        </div>
 
-		</div>
+        <div class="w3-container">
+            <p class="section-header" id="projects"><u>Projects</u></p>
+            <table class="w3-table-all w3-hoverable" style="overflow-x:auto;">
+                <thead>
+                    <tr class="w3-blue-grey">
+                        <th>ID</th>
+                        <th>Project Name</th>
+                        <th>Description</th>
+                        <th style="width:500px">Link (If Available)</th>
+                    </tr>
+                </thead>
+                
+                <tr>
+                    <td>001</td>
+                    <td>EPROM Programmer</td>
+                    <td>An arduino based EPROM programmer</td>
+                    <td>In Dev</td>
+                </tr>
+                <tr>
+                    <td>002</td>
+                    <td>Mileage Calculator</td>
+                    <td>A quick Python app to help the missus calculate the mileage returns</td>
+                    <td>In Dev</td>
+                </tr>
+                <tr>
+                    <td>003</td>
+                    <td>A home storage controller.</td>
+                    <td>A home storage controller, syncronising the media content between local servers. Primarily in ASP.NET Core</td>
+                    <td>In Dev</td>
+                </tr>
+                <tr>
+                    <td>004</td>
+                    <td>Personal Web Page</td>
+                    <td>Eventually rebuilding this page into a ASP.NET Core page to advertise services and portfolio.</td>
+                    <td>In Dev</td>
+                </tr>
 
-		<div class="w3-container w3-right">
-		</div>
-	
-	</div>
+            </table>
+        </div>
+    
+        <div class="w3-container">
+            <p class="section-header" id="interests"><u>Interests (2019 Agenda)</u></p>
+            <table class="w3-table-all w3-hoverable" style="overflow-x:auto;">
+                <thead>
+                    <tr class="w3-blue-grey">
+                        <th>Subject</th>
+                        <th>Personal Deadline</th>
+                    </tr>
+                </thead>
+                
+                <tr>
+                    <td>z80 - Homebrew Computing</td>
+                    <td>01/04/2019</td>
+                </tr>
+                <tr>
+                    <td>React Development</td>
+                    <td>01/07/2019</td>
+                </tr>
+                <tr>
+                    <td>Machine Learning Concepts (pykit, ml.net, tensor flow)</td>
+                    <td>01/06/2019</td>
+                </tr>
+            </table>
+        </div>
 
 </body>
 
-<footer class="w3-container w3-blue-grey">
-	<div class="w3-left">
-		<p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-	</div>
-</footer>
+    <footer class="w3-container w3-blue-grey">
+        <div class="w3-left">
+            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+        </div>
+    </footer>
 
 </html>
