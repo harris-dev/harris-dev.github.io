@@ -19,6 +19,11 @@
     body {
 		padding-top: 0px;
 	}
+    .section-header{
+		padding-left: 20px;
+		font-size: 30px;
+		color: darkgrey;
+    }
 </style>
 <script>
 // Script to open and close sidebar that I borrowed from w3
@@ -82,9 +87,9 @@ var navManager = new NavigationHider(60,".header-hide");
         </a>
     </div>
     <div class="w3-bar-block">
-        <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"><i class="fas fa-code w3-margin-right"></i>About</a> 
-        <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fas fa-pen"></i>Projects</a> 
-        <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fas fa-glasses w3-margin-right"></i>Interests</a>
+        <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-blue-grey"><i class="fas fa-pen w3-margin-right"></i>About</a> 
+        <a href="#projects" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-blue-grey"><i class="fas fa-code w3-margin-right"></i>Projects</a> 
+        <a href="#interests" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-blue-grey"><i class="fas fa-glasses w3-margin-right"></i>Interests</a>
     </div>
     <div class="w3-panel w3-large">
         <i class="fab fa-linkedin w3-hover-opacity"></i>
@@ -95,15 +100,24 @@ var navManager = new NavigationHider(60,".header-hide");
     <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
       <!-- Header -->
-    <header class="w3-container w3-blue-grey header-hide" style="display: fixed; text-align:middle; height: 60px; top:0px">
+    <header class="w3-container w3-blue-grey header-hide" style="display: fixed; height: 70px; top:0px">
         <span><span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
         <a class="w3-opacity" style="font-size: 25px;">.harrisDev</a></span>
     </header>
 
-    <div class="w3-main main">
+    <div class="w3-main main w3-light-grey">
 
         <div class="w3-container" >
             <p class="section-header" id="highlights"><u>Highlights</u></p>
+            <!--template for table row-->
+            <div class="w3-container">
+                <!--image-->
+                <i class="fas fa-code" style="min-height: 120px; min-width: 120px; display: inline-block; text-align: center; font-size: 40px;"></i>
+                <div class="w3-container" style="display: inline-block; width: 75%;">
+                    <p>Title</p>
+                    <p>Description</p>
+                </div>
+            </div>
         </div>
 
         <div class="w3-container">
@@ -148,7 +162,7 @@ var navManager = new NavigationHider(60,".header-hide");
     
         <div class="w3-container">
             <p class="section-header" id="interests"><u>Interests (2019 Agenda)</u></p>
-            <table class="w3-table-all w3-hoverable" style="overflow-x:auto;">
+            <table class="w3-table-all w3-hoverable" style="overflow-x:auto; text-align: center; ">
                 <thead>
                     <tr class="w3-blue-grey">
                         <th>Subject</th>
@@ -170,13 +184,14 @@ var navManager = new NavigationHider(60,".header-hide");
                 </tr>
             </table>
         </div>
-
+    </div>
 </body>
 
-    <footer class="w3-container w3-blue-grey">
-        <div class="w3-left">
-            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-        </div>
-    </footer>
+<footer class="w3-container w3-blue-grey" style="margin-top:20px;">
+    <div class="w3-left">
+        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+    </div>
+</footer>
+
 
 </html>
